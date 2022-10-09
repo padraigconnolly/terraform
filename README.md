@@ -1,6 +1,10 @@
 # Terraform Resources For Home Lab
 This repo contains terraform resource templates for quickly setting up virtual machines and other OS instances.
 
+These templates come from the excellant Youtuber [The Digital Life](https://www.youtube.com/c/TheDigitalLifeTech) from [this video](https://www.youtube.com/watch?v=dvyeoDBUtsU).
+
+The original repo is also from [The Digital Life](https://www.youtube.com/c/TheDigitalLifeTech) and can be found [here](https://github.com/xcad2k/boilerplates).
+
 ## Quick Start Guide (Ubuntu)
 
 This guide assumes there is a Virtual Machine image on Proxomx called `ubuntu-server-jammy` already present. Either create this using [packer](https://github.com/padraigconnolly/packer) or manually create it using Proxmox.
