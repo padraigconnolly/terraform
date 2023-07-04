@@ -7,7 +7,7 @@ The original repo is also from [The Digital Life](https://www.youtube.com/c/TheD
 
 ## Quick Start Guide (Ubuntu)
 
-This guide assumes there is a Virtual Machine image on Proxomx called `ubuntu-server-jammy` already present. Either create this using [packer](https://github.com/padraigconnolly/packer) or manually create it using Proxmox.
+This guide assumes there is a Virtual Machine image on Proxmox called `ubuntu-server-jammy` already present. Either create this using [packer](https://github.com/padraigconnolly/packer) or manually create it using Proxmox.
 
 > This repo also contains my SSH Pub key in `full-clone.tf`, make sure to change this to one that you own
 
