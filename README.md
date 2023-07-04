@@ -50,16 +50,22 @@ Edit `credentials.tfvars` to match your Proxmox instance
 
 Run the following to test the template you have created to ensure everything is ok before applying:
 ```bash
-terraform plan -var-file=credentails.tfvars
+terraform plan -var-file=credentials.tfvars
 ```
 
 ### Run Terraform
 
 Finally run Terraform to create the requested VM in proxmox:
 ```bash
-terraform apply -auto-approve -var-file=credentails.tfvars -replace=proxmox_vm_qemu.control-plane1
+terraform apply -auto-approve -var-file=credentials.tfvars -replace=proxmox_vm_qemu.control-plane1 -replace=proxmox_vm_qemu.worker-node1 -replace=proxmox_vm_qemu.worker-node2
 ```
-> Note `-replace=proxmox_vm_qemu.control-plane1` is included here to remove the control-plane1 VM if it is currently present on the machine, this can be safely removed if required.
+> Note `-replace=proxmox_vm_qemu.control-plane1` is included here to remove the control-plane1 VM if it is currently present on the machine, this can be safely removed if you don't want the existing config to be wiped.
 
 Terraform and Proxmox then takes roughly 1min 40secs to create the Virtual Machine instance.
 > Note Cloud-Init will also run post terraform install but you can log into the instance while this is going on. Once cloud init is finished, it is recommended to reboot the VM so it can install the latest kernel for that version of Ubuntu.
+
+### Destroy VM Instances
+To destroy the previously created VM instances run the following command:
+```bash
+terraform destroy -target proxmox_vm_qemu.control-plane1 -target proxmox_vm_qemu.worker-node1 -target proxmox_vm_qemu.worker-node2 -var-file=credentials.tfvars
+```
